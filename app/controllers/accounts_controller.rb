@@ -1,7 +1,5 @@
 #!/usr/bin/ruby
 
-require 'synapsepay-api'
-
 class AccountsController < ApplicationController
   #include ApiSynapsepay::Client
   before_action :set_account, only: [:show, :edit, :update, :destroy]
@@ -10,6 +8,9 @@ class AccountsController < ApplicationController
   # GET /accounts.json
   def index
     @accounts = Account.all
+
+    client = Synapsepay::Client.new
+    @list = client.list()
     #@bank_accounts = SynapseClient::Customer.retrieve("_customer_access_token_")
   end
 
@@ -30,12 +31,11 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
-    s = SynapsepayApi::SynapsepayApi.new
-    s.create()
-    #c = SynapsepayApi::Client.new
-    
-    #client = SynapsepayApi::Client.new
-    #client.create(account_params['email'], account_params['phone'], account_params['name'])
+    #s = Synapsepay::SynapsepayApi.new
+    #s.create()
+
+    client = Synapsepay::Client.new
+    client.create(account_params['email'], account_params['phone'], account_params['name'])
 
     @account = Account.new(account_params)
 
