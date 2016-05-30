@@ -1,0 +1,8 @@
+development:
+  synapsepay_url: 'https://sandbox.synapsepay.com/api/3/'
+
+test:
+  synapsepay_url: 'https://sandbox.synapsepay.com/api/3/'
+
+production:
+  synapsepay_url: 'https://sandbox.synapsepay.com/api/3/'

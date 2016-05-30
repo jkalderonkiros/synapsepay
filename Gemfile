@@ -30,7 +30,9 @@ gem 'rails_12factor', group: :production
 
 gem 'rest-client'
 
-ruby "2.3.1"
+#gem 'synapse_client'
+
+ruby "2.0.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
