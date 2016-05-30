@@ -1,4 +1,9 @@
+#!/usr/bin/ruby
+
+require 'synapsepay-api'
+
 class AccountsController < ApplicationController
+  #include ApiSynapsepay::Client
   before_action :set_account, only: [:show, :edit, :update, :destroy]
 
   # GET /accounts
@@ -25,26 +30,28 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
-
-    SynapseClient::Customer.create({
-      :email        => account_params['email'],
-      :fullname     => account_params['name'],
-      :phonenumber  => account_params['phone'],
-      :ip_address   => "8.8.8.8",
-      :force_create => true
-    })
+    s = SynapsepayApi::SynapsepayApi.new
+    s.create()
+    #c = SynapsepayApi::Client.new
+    
+    #client = SynapsepayApi::Client.new
+    #client.create(account_params['email'], account_params['phone'], account_params['name'])
 
     @account = Account.new(account_params)
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
+        format.html { redirect_to @account, notice: "Account was successfully created." }
         format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def list
+
   end
 
   # PATCH/PUT /accounts/1
