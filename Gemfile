@@ -30,7 +30,8 @@ gem 'rails_12factor', group: :production
 
 gem 'rest-client'
 
-gem 'synapsepay-api', :path => "/Users/josecalderon/projects/synapsepay-api"
+#gem 'synapsepay-api', :path => "/Users/josecalderon/projects/synapsepay-api"
+gem 'synapsepay-api', :github => "jkalderonkiros/synapsepay-api"
 
 ruby "2.0.0"
 

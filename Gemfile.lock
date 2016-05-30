@@ -1,5 +1,6 @@
-PATH
-  remote: ../synapsepay-api
+GIT
+  remote: git://github.com/jkalderonkiros/synapsepay-api.git
+  revision: f68f2f4100667c2cc5cf7daf7e4a311ff16d5952
   specs:
     synapsepay-api (1.0.0)
 
